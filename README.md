@@ -23,16 +23,27 @@ articles/
    - Isi paragraf cerita di bagian `<article class="article-body">`
    - `REPLACE-WITH-YOUR-USERNAME` dan `REPLACE-FILENAME` di URL `og:image`, `og:url`,
      dan link share Facebook → ganti dengan username GitHub & nama file kamu
-3. Siapkan 1 gambar preview (ukuran disarankan 1200x630px) untuk cerita itu,
-   simpan di folder `assets/` (buat foldernya kalau belum ada), lalu isi
-   `og:image` dengan link ke gambar itu. Ini supaya tiap cerita punya gambar
-   preview sendiri saat dibagikan ke Facebook/WhatsApp.
+3. Siapkan 1 gambar untuk cerita itu (ukuran disarankan **1200x630px**, rasio 16:9),
+   simpan di folder `assets/` (buat foldernya kalau belum ada) dengan nama file
+   **sama persis** dengan nama file HTML-nya, misalnya:
+   - artikel: `articles/the-good-samaritan.html`
+   - gambar: `assets/the-good-samaritan.jpg`
+   Gambar ini otomatis dipakai di DUA tempat: tampil di atas artikel (di bawah judul),
+   dan jadi gambar preview (`og:image`) saat link dibagikan ke Facebook/WhatsApp —
+   jadi cukup satu file gambar, tidak perlu buat dua.
 4. Buka `index.html` dan `all-articles.html`, copy salah satu blok kartu
    `<a class="card">...</a>`, taruh paling atas di dalam `<div class="grid">`,
    lalu edit tanggal / judul / ringkasan / `href` supaya mengarah ke file
    cerita barumu.
 5. Upload semua file (index.html, all-articles.html, styles.css, dan folder
    articles/ + assets/) ke repo GitHub Pages kamu.
+
+## Gambar (assets/)
+Folder `assets/` **belum ada** di dalam zip ini — kamu perlu membuatnya sendiri
+di repo GitHub dan mengisi dengan foto untuk tiap artikel (nama file harus sama
+dengan nama file HTML artikelnya, lihat langkah 3 di atas). Selama foto belum
+diupload, ruang gambar di atas artikel akan tampil kosong (bukan error, cuma
+belum ada gambarnya).
 
 ## Iklan
 Setiap halaman cerita sudah punya slot iklan siap pakai:
