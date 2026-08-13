@@ -1,0 +1,132 @@
+/* DAILY WORD OF JESUS — calm, elegant, mobile-first */
+:root {
+  --color-bg: #faf7f2; --color-bg-alt: #ffffff; 
+  --color-ink: #2b2620; --color-ink-soft: #5c5347;
+  --color-accent: #a8763e; --color-accent-dark: #7c5528;
+  --color-border: #e8e0d3; --color-verse-bg: #f3ead9;
+  --font-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --max-width: 760px; --radius: 10px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font-sans); background: var(--color-bg);
+       color: var(--color-ink); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--color-accent-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 18px; }
+.wide-container { max-width: 1080px; margin: 0 auto; padding: 0 18px; }
+
+/* Header */
+header.site-header { background: var(--color-bg-alt); border-bottom: 1px solid var(--color-border);
+                     position: sticky; top: 0; z-index: 50; }
+.site-header-inner { max-width: 1080px; margin: 0 auto; padding: 14px 18px;
+                     display: flex; align-items: center; justify-content: space-between; }
+.site-logo { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 700;
+             color: var(--color-ink); }
+.site-logo span { color: var(--color-accent); }
+nav.site-nav { display: none; gap: 22px; }
+nav.site-nav a { color: var(--color-ink-soft); font-size: 0.95rem; font-weight: 600; }
+.menu-toggle { background: none; border: none; font-size: 1.6rem; color: var(--color-ink);
+               cursor: pointer; line-height: 1; }
+nav.site-nav.open { display: flex; flex-direction: column; position: absolute; top: 100%;
+                    left: 0; right: 0; background: var(--color-bg-alt);
+                    border-bottom: 1px solid var(--color-border); padding: 16px 18px; gap: 14px; }
+@media (min-width: 720px) {
+  .menu-toggle { display: none; }
+  nav.site-nav { display: flex; position: static; padding: 0; border: none; }
+}
+
+/* Ad containers — generous spacing, never touching title/verse/image */
+.ad-container { margin: 26px auto; text-align: center; overflow: hidden; min-height: 1px; }
+.ad-container .ad-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
+                          color: #b3aa9c; margin-bottom: 6px; }
+.ad-slot-header { margin: 16px auto 0; }
+.ad-slot-inline { margin: 32px auto; }
+/* Reserved sizes = no layout shift (breakpoints match script.js) */
+.ad-slot-header { height: 50px; max-width: 320px; }
+@media (min-width: 600px) { .ad-slot-header { height: 60px; max-width: 468px; } }
+@media (min-width: 992px) { .ad-slot-header { height: 90px; max-width: 728px; } }
+#ad-article-300x250 { height: 250px; max-width: 300px; }
+.ad-slot-sidebar { width: 160px; margin: 0 auto 24px; }
+.ad-slot-sidebar[data-variant="banner_160x300"] { height: 300px; }
+.ad-slot-sidebar[data-variant="banner_160x600"] { height: 600px; }
+
+/* Daily verse */
+.daily-word { background: var(--color-verse-bg); border-radius: var(--radius);
+              padding: 34px 26px; margin: 28px 0; text-align: center; }
+.daily-word .eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
+                       color: var(--color-accent-dark); font-weight: 700; margin-bottom: 12px; }
+.daily-word blockquote { font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.5;
+                         margin: 0 0 12px; color: var(--color-ink); }
+.daily-word cite { font-style: normal; font-weight: 600; color: var(--color-accent-dark); }
+
+.section-title { font-family: var(--font-serif); font-size: 1.4rem; margin: 40px 0 18px;
+                 color: var(--color-ink); border-bottom: 2px solid var(--color-border);
+                 padding-bottom: 8px; }
+
+/* Cards */
+.article-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .article-grid { grid-template-columns: 1fr 1fr; } }
+.card { background: var(--color-bg-alt); border: 1px solid var(--color-border);
+        border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+.card img { aspect-ratio: 16/9; object-fit: cover; }
+.card-body { padding: 16px; }
+.card-category { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;
+                 color: var(--color-accent-dark); font-weight: 700; }
+.card-title { font-family: var(--font-serif); font-size: 1.1rem; margin: 8px 0; color: var(--color-ink); }
+.card-excerpt { font-size: 0.92rem; color: var(--color-ink-soft); }
+
+/* Article layout + desktop-only sidebar */
+.article-layout { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: start; }
+@media (min-width: 960px) { .article-layout { grid-template-columns: minmax(0, 1fr) 200px; } }
+.article-layout > article, .layout-main { min-width: 0; }
+.article-sidebar { display: none; }
+@media (min-width: 960px) { .article-sidebar { display: block; position: sticky; top: 90px; } }
+.article-header { margin: 26px 0 18px; }
+.article-title { font-family: var(--font-serif); font-size: 2rem; line-height: 1.25;
+                 margin: 10px 0; color: var(--color-ink); }
+.article-meta { font-size: 0.85rem; color: var(--color-ink-soft); }
+.article-hero-image { border-radius: var(--radius); margin: 18px 0; }
+.article-body p { font-family: var(--font-serif); font-size: 1.08rem; color: var(--color-ink);
+                  margin: 0 0 20px; }
+.verse-box { background: var(--color-verse-bg); border-left: 4px solid var(--color-accent);
+             border-radius: 6px; padding: 18px 20px; margin: 24px 0;
+             font-family: var(--font-serif); font-style: italic; }
+
+/* Share — pure links, no scripts */
+.share-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 28px 0 0; }
+.share-label { font-size: 0.75rem; font-weight: 700; color: var(--color-ink-soft);
+               text-transform: uppercase; letter-spacing: 0.08em; }
+.share-row a { border: 1px solid var(--color-border); background: var(--color-bg-alt);
+               padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+               color: var(--color-ink-soft); }
+.share-row a:hover { border-color: var(--color-accent); color: var(--color-accent-dark);
+                     text-decoration: none; }
+
+/* Smartlink promo — clearly labeled, never disguised as navigation */
+.promo-box { background: var(--color-bg-alt); border: 1px dashed var(--color-accent);
+             border-radius: var(--radius); padding: 22px; margin: 30px 0; text-align: center; }
+.promo-box .promo-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
+.promo-box .promo-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
+                          color: #a79c8b; margin-bottom: 10px; }
+.promo-button { display: inline-block; background: var(--color-accent); color: #fff;
+                padding: 10px 22px; border-radius: 30px; font-weight: 700; font-size: 0.9rem;
+                margin-top: 6px; }
+.promo-button:hover { background: var(--color-accent-dark); text-decoration: none; }
+
+.related-list { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .related-list { grid-template-columns: 1fr 1fr 1fr; } }
+
+footer.site-footer { margin-top: 60px; border-top: 1px solid var(--color-border);
+                     padding: 30px 18px 50px; text-align: center; color: var(--color-ink-soft);
+                     font-size: 0.85rem; }
+footer.site-footer a { color: var(--color-ink-soft); text-decoration: underline; }
+/* Article subheadings (## lines) */
+.article-subheading {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin: 30px 0 12px;
+  color: var(--color-ink);
+}
